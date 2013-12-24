@@ -36,6 +36,7 @@
         antarctica: false,
         color: "#A9DA8A",
         border: "white",
+        align: "center",
         backgroundColor: "#4af",
         borderWidth: "2",
         height: null, //default is actually 100%
@@ -57,9 +58,8 @@
       // add the SVG to the div
       var that = self;
       that.css({
-        background: settings.backgroundColor,
         width: (settings.width || "100%"),
-        height: (settings.height || "100%")
+        height: (settings.height || "100%"),
       });
       if (settings.map == "world") {
         var url = (settings.antarctica) ? 'maps/world-map-with-antarctica.svg' : 'maps/world-map.svg';
@@ -84,6 +84,10 @@
         $("svg", that).attr({
           height: that.height(),
           width: that.width()
+        }).css({
+          background: settings.backgroundColor,
+          margin: "auto",
+          display: "block"
         });
         var hiddens = settings.hideCountries;
         for (i in hiddens) {
