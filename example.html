@@ -25,15 +25,14 @@
             name: "cn",
             color: "red"
           }]
+        }, function() {
+          //callback function after map loads
+          $('#worldmap').twism("setCountry", {
+            name: "ca",
+            color: "blue"
+          });
         });
       });
-      
-      setTimeout(function() {
-        $('#worldmap').twism("setCountry", {
-          name: "ca",
-          color: "blue"
-        });
-      }, 4000);
     </script>
   </body>
 </html>

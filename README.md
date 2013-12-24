@@ -1,8 +1,12 @@
-twism (alpha)
+twism 
 =====
-
 A clickable world map jQuery plugin
-###Quick Instructions
+
+####Version: 0.1 
+It's basically an early beta)
+
+
+##Quick Instructions
 Include jQuery and the jQuery twism plugin:
 
 	<script src="http://code.jquery.com/jquery.js"></script>
@@ -15,16 +19,15 @@ Intialize the plugin:
 
 	$('#worldmap').twism();
 	
-:
 
-###Usage
-The basic usage is 
+##Complete Documentation
+
+####Usage
 
 	selector.twism([method], [options], [callback]);
 	
-Everything is optional. 
 
-#####Methods: 
+####Methods: 
 
 * create (default) - create a map
 * destroy - remove a map
@@ -34,7 +37,7 @@ For instance:
 	
 	$('#worldmap').twism("destroy");
 
-The create and setCountry commands take options and all take a callback. (Note: the map loads asynchronously so the callback for the create command runs when the code is complete, not when the map loads.) 
+The create and setCountry commands take options and all take a callback. 
 
 An example with a method, option, and callback:
  	
