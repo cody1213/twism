@@ -22,13 +22,21 @@ The basic usage is
 
 	selector.twism([method], [options], [callback]);
 	
-Everything is optional. The default creates with the default options and has no callback.  
+Everything is optional. 
 
-You can pass one of three methods: create, destroy, and setCountry. Create and destroy add and remove maps while the setCountry modifies a single country.
+#####Methods: 
+
+* create (default) - create a map
+* destroy - remove a map
+* setCountry - change one country's options
+
+For instance: 
 	
 	$('#worldmap').twism("destroy");
 
-The create and setCountry commands take options. The full list of options follows but the setCountry command only accepts color, border, and borderWidth.
+The create and setCountry commands take options and all take a callback. (Note: the map loads asynchronously so the callback for the create command runs when the code is complete, not when the map loads.) 
+
+An example with a method, option, and callback:
  	
  	$('#worldmap').twism("create", {
     	border: "red",
@@ -42,31 +50,25 @@ The create and setCountry commands take options. The full list of options follow
     		name: "us",
     		color: "white"
     	}]
-    });
-
-All of the methods accept a callback
-    
-	$('#worldmap').twism("setCountry", {
-          name: "ca",
-          color: "blue"
     }, function() {
     	alert("Callback!");
     });
+
 ###Options
 
 Include Antarctica (default: false)
 
 	antarctica: true
 
-Set background color of countries (default: #A9DA8A) 
+Set background color of countries (default: #A9DA8A, can be used with setCountry) 
 	
 	color: "#A9DA8A"
 
-Set the default color for the country borders (default: white)
+Set the default color for the country borders (default: white, can be used with setCountry)
 	
 	border: "white"
 
-Set the border width (default: 2):
+Set the border width (default: 2, can be used with setCountry):
 
 	borderWidth: 2
 	
