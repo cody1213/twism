@@ -5,6 +5,8 @@ A clickable world map jQuery plugin
 ####Version: 0.1 
 It's basically an early beta)
 
+####Live example
+http://dev.codybrumfield.com/jquery-plugins/twism/example.html
 
 ##Quick Instructions
 Include jQuery and the jQuery twism plugin:
