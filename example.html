@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clickable Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+          <div id="worldmap"></div>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="jquery.twism.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#worldmap').twism("create", 
+        {
+          border: "red",
+          individualCountrySettings: [{
+            name: "cn",
+            color: "red"
+          }]
+        });
+      });
+      
+      setTimeout(function() {
+        $('#worldmap').twism("setCountry", {
+          name: "ca",
+          color: "blue"
+        });
+      }, 4000);
+    </script>
+  </body>
+</html>
