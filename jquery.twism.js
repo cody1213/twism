@@ -30,6 +30,9 @@
     var create = function (options, callback) {
       var settings = $.extend({
         // These are the defaults.
+        map: "world",
+        customMap: false,
+        territories: true,
         antarctica: false,
         color: "#A9DA8A",
         border: "white",
@@ -58,7 +61,25 @@
         width: (settings.width || "100%"),
         height: (settings.height || "100%")
       });
-      var url = (settings.antarctica) ? 'world-map-with-antarctica.svg' : 'world-map.svg';
+      if (settings.map == "world") {
+        var url = (settings.antarctica) ? 'maps/world-map-with-antarctica.svg' : 'maps/world-map.svg';
+      } else if (settings.map == "usa") {
+        var url = 'maps/Blank_US_territories.svg';
+        if (!settings.territories) {
+          if (!settings.hideCountries) {
+            settings.hideCountries = [];
+          }
+          settings.hideCountries.push("VI");
+          settings.hideCountries.push("GU");
+          settings.hideCountries.push("MP");
+          settings.hideCountries.push("AS");
+          settings.hideCountries.push("PR");
+          
+        }
+      } else if (settings.map == "custom") {
+        var url = settings.customMap;
+      }
+      console.log(url);
       that.load(url, null, function (e) {
         $("svg", that).attr({
           height: that.height(),
@@ -87,12 +108,14 @@
         });
 
         $("svg path", that).on("mouseover", function (e) {
-          var icss = $.map(ics, function (o) {
-            return o["name"];
-          })
+          if (ics && ics.length) {
+            var icss = $.map(ics, function (o) {
+              return o["name"];
+            });
+          }
           var country = $(e.target).attr("id");
 
-          if (icss.indexOf(country) > -1) {
+          if (ics && icss.indexOf(country) > -1) {
             for (i in ics) {
               if (ics[i].name == country) {
                 $("svg path#" + ics[i].name, that).css({

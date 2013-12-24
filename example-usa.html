@@ -19,8 +19,8 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="example-usa.html">USA</a></li>
-            <li><a href="example-custom.html">Custom</a></li>
+            <li><a href="example.html">World Map</a></li>
+            <li><a href="example-custom.html">Custom Map</a></li>
           </ul>
         </div>
         <!--/.nav-collapse -->
@@ -29,7 +29,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-          <div id="worldmap"></div>
+          <div id="us-map"></div>
         </div>
       </div>
     </div>
@@ -38,20 +38,15 @@
     <script src="jquery.twism.js"></script>
     <script>
       $(document).ready(function() {
-        $('#worldmap').twism("create", 
+        $('#us-map').twism("create", 
         {
-          map: "world",
+          map: "usa",
           border: "red",
           individualCountrySettings: [{
-            name: "cn",
-            color: "red"
+            name: "LA",
+            color: "purple",
+            border: "green"
           }]
-        }, function() {
-          //callback function after map loads
-          $('#worldmap').twism("setCountry", {
-            name: "ca",
-            color: "blue"
-          });
         });
       });
     </script>

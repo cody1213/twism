@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,8 +20,8 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="example-usa.html">USA</a></li>
-            <li><a href="example-custom.html">Custom</a></li>
+            <li><a href="example.html">World Map</a></li>
+            <li><a href="example-usa.html">USA Map</a></li>
           </ul>
         </div>
         <!--/.nav-collapse -->
@@ -40,18 +41,12 @@
       $(document).ready(function() {
         $('#worldmap').twism("create", 
         {
-          map: "world",
-          border: "red",
-          individualCountrySettings: [{
-            name: "cn",
-            color: "red"
-          }]
-        }, function() {
-          //callback function after map loads
-          $('#worldmap').twism("setCountry", {
-            name: "ca",
-            color: "blue"
-          });
+          map: "custom",
+          customMap: 'maps/Map_of_Heaven.svg',
+          border: "green",
+          color: "blue",
+          backgroundColor: "yellow"
+          
         });
       });
     </script>

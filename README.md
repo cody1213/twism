@@ -1,6 +1,6 @@
 twism 
 =====
-A clickable world map jQuery plugin
+A clickable maps jQuery plugin
 
 ####Version: 0.1 
 It's basically an early beta. I'm developing a site with it now so it will get less bata-y as that project gets closer to completion. 
@@ -44,6 +44,7 @@ The create and setCountry commands take options and all take a callback.
 An example with a method, option, and callback:
  	
  	$('#worldmap').twism("create", {
+ 		map: "world",
     	border: "red",
         individualCountrySettings: [{
             name: "cn",
@@ -61,10 +62,26 @@ An example with a method, option, and callback:
 
 ###Options
 
-Include Antarctica (default: false)
+Map (options: usa, world, or custom; default is world)
+
+	map: "world"
+
+Custom Map - if map: custom, a URL for your SVG (must have id="something" on every clickable area)
+
+	customMap: 'maps/Blank_US_Map.svg'
+	
+Include Antarctica (default: false, only for world map)
 
 	antarctica: true
 
+U.S. Territories
+
+	territories: true
+
+P.R.C. Territories (include Taiwan, HK, and Macao in China, default: true)
+
+	littleRedBook: false,
+		
 Set background color of countries (default: #A9DA8A, can be used with setCountry) 
 	
 	color: "#A9DA8A"
@@ -102,10 +119,6 @@ Set a hover color (default: #BB0029)
 Set the hover border (default: "yellow") 
 	
 	hoverBorder: "yellow"
-
-Include Taiwan, HK, and Macao in the PRC (China) (default: true)
-
-	littleRedBook: false,
 
 Hide any countries (array of 2-digit country codes)
 
