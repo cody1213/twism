@@ -3,7 +3,7 @@ twism
 A clickable world map jQuery plugin
 
 ####Version: 0.1 
-It's basically an early beta)
+It's basically an early beta. I'm developing a site with it now so it will get less bata-y as that project gets closer to completion. 
 
 ####Live example
 http://dev.codybrumfield.com/jquery-plugins/twism/example.html

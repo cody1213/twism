@@ -38,7 +38,9 @@
         height: null, //default is actually 100%
         width: null, //default is actually 100%
         click: function (state) {
-          alert(state);
+          if (state) {
+            alert(state);
+          }
         },
         hover: function () {
           return;
@@ -49,7 +51,6 @@
         hideCountries: null,
         individualCountrySettings: null
       }, options);
-      console.log(settings);
       // add the SVG to the div
       var that = self;
       that.css({
