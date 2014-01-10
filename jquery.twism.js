@@ -119,7 +119,7 @@
             });
           }
           var country = $(e.target).attr("id");
-          if (settings.disableCountries.indexOf(country) == -1) {
+          if (settings.disableCountries && settings.disableCountries.indexOf(country) == -1) {
             if (ics && icss.indexOf(country) > -1) {
               for (i in ics) {
                 if (ics[i].name == country) {
