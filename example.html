@@ -44,6 +44,7 @@
           width: 1000,
           map: "world",
           border: "red",
+          disableCountries: ['ar'],
           individualCountrySettings: [{
             name: "cn",
             color: "red"
@@ -52,7 +53,12 @@
           //callback function after map loads
           $('#worldmap').twism("setCountry", {
             name: "ca",
-            color: "blue"
+            color: "blue",
+            hoverColor: "yellow",
+            hoverBorder: "purple",
+            hover: function(state) {
+              alert("You clicked "+state);
+            }
           });
         });
       });

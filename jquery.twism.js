@@ -53,6 +53,7 @@
         hoverBorder: "yellow",
         littleRedBook: true,
         hideCountries: null,
+        disableCountries: null,
         individualCountrySettings: null
       }, options);
       // add the SVG to the div
@@ -118,29 +119,30 @@
             });
           }
           var country = $(e.target).attr("id");
-
-          if (ics && icss.indexOf(country) > -1) {
-            for (i in ics) {
-              if (ics[i].name == country) {
-                $("svg path#" + ics[i].name, that).css({
-                  fill: ics[i].hoverColor || settings.hoverColor,
-                  stroke: ics[i].hoverBorder || settings.hoverBorder
-                });
+          if (settings.disableCountries.indexOf(country) == -1) {
+            if (ics && icss.indexOf(country) > -1) {
+              for (i in ics) {
+                if (ics[i].name == country) {
+                  $("svg path#" + ics[i].name, that).css({
+                    fill: ics[i].hoverColor || settings.hoverColor,
+                    stroke: ics[i].hoverBorder || settings.hoverBorder
+                  });
+                }
               }
-            }
-          } else {
-            $('path#' + country, that).css({
-              "fill": settings.hoverColor,
-              "stroke": settings.hoverBorder
-            });
-          }
-
-          if (settings.littleRedBook) {
-            if (country == "cn" || country == "tw" || country == "hk" || country == "mc") {
-              $('path#tw, path#cn, path#hk, path#mc').css({
+            } else {
+              $('path#' + country, that).css({
                 "fill": settings.hoverColor,
                 "stroke": settings.hoverBorder
               });
+            }
+  
+            if (settings.littleRedBook) {
+              if (country == "cn" || country == "tw" || country == "hk" || country == "mc") {
+                $('path#tw, path#cn, path#hk, path#mc').css({
+                  "fill": settings.hoverColor,
+                  "stroke": settings.hoverBorder
+                });
+              }
             }
           }
         });
@@ -197,6 +199,42 @@
       if (options.borderWidth) {
         $("svg path#" + options.name).css({
           strokeWidth: options.borderWidth
+        });
+      }
+      if (options.hoverColor) {
+        $("svg path#" + options.name).on("mouseover", function(e) {
+          $("svg path#" + options.name).css({
+            fill: options.hoverColor
+          });
+          if (options.hoverBorder) {
+            $("svg path#" + options.name).css({
+              stroke: options.hoverBorder
+            });
+          }
+        });
+        $("svg path#" + options.name).on("mouseout", function(e) {
+          $("svg path#" + options.name).css({
+            fill: options.color
+          });
+          if (options.hoverBorder) {
+            $("svg path#" + options.name).css({
+              stroke: options.border
+            });
+          }
+        });
+      }
+      if (options.click) {
+        $("svg path#" + options.name).on("click", function (e) {
+          e.stopPropagation()
+          lastclicked = $(e.target).attr("id");
+          options.click(lastclicked);
+        });
+      }
+      if (options.hover) {
+        $("svg path#" + options.name).on("mouseover", function (e) {
+          e.stopPropagation()
+          lastclicked = $(e.target).attr("id");
+          options.hover(lastclicked);
         });
       }
         

@@ -107,11 +107,11 @@ Set the background color (default: "#4af")
 
 	backgroundColor: "white"
 
-Set a hover color (default: #BB0029)
+Set a hover color (default: #BB0029, can be used with setCountry)
 	
 	hoverColor: "#BB0029"
 	
-Set the hover border (default: "yellow") 
+Set the hover border (default: "yellow", can be used with setCountry) 
 	
 	hoverBorder: "yellow"
 
@@ -123,11 +123,15 @@ Set the width (leaving it blank tries to get the parent div width):
 	
 	width: 500px
 
-Set a click event function (default alerts with the country code, if you put an argument on the function, it'll return the ID attribute of the region)
+Set a click event function (default alerts with the country code, if you put an argument on the function, it'll return the ID attribute of the region, can be used with setCountry)
 
 	click: function(country) {
     	alert(country);
 	}
+
+Disable any regions (array of ID attributes or 2-digit country/state codes in the default world/USA maps)
+
+    dispableCountries: ["cn","ca","nz"]
 
 Hide any regions (array of ID attributes or 2-digit country/state codes in the default world/USA maps)
 
