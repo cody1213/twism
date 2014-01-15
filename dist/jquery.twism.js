@@ -63,9 +63,9 @@
         height: (settings.height || "100%"),
       });
       if (settings.map == "world") {
-        var url = (settings.antarctica) ? 'maps/world-map-with-antarctica.svg' : 'maps/world-map.svg';
+        var file = (settings.antarctica) ? 'world-map-with-antarctica.svg' : 'world-map.svg';
       } else if (settings.map == "usa") {
-        var url = 'maps/Blank_US_territories.svg';
+        var file = 'Blank_US_territories.svg';
         if (!settings.territories) {
           if (!settings.hideCountries) {
             settings.hideCountries = [];
@@ -80,7 +80,16 @@
       } else if (settings.map == "custom") {
         var url = settings.customMap;
       }
-      console.log(url);
+      //hack for RequireJS/Bower
+      if (typeof(require)!=='undefined') {
+        var oriurl = file;
+        url = require.toUrl('twism').replace('jquery.twism','maps/'+file);
+      } else if (!settings.customMap) {
+        url = 'dist/maps/'+file;
+      } else {
+        url = settings.customMap;
+      }
+
       that.load(url, null, function (e) {
         $("svg", that).attr({
           height: that.height(),
