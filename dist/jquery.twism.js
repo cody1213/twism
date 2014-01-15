@@ -81,7 +81,7 @@
         var url = settings.customMap;
       }
       //hack for RequireJS/Bower
-      if (typeof(require)!=='undefined') {
+      if (typeof(require)!=='undefined' && settings.map != "custom") {
         var oriurl = file;
         url = require.toUrl('twism').replace('jquery.twism','maps/'+file);
       } else if (!settings.customMap) {
@@ -120,8 +120,8 @@
           lastclicked = $(e.target).attr("id");
           settings.click(lastclicked);
         });
-
-        $("svg path", that).on("mouseover", function (e) {
+        
+        $("svg path, svg text", that).on("mouseover", function (e) {
           if (ics && ics.length) {
             var icss = $.map(ics, function (o) {
               return o["name"];
@@ -136,6 +136,7 @@
                     fill: ics[i].hoverColor || settings.hoverColor,
                     stroke: ics[i].hoverBorder || settings.hoverBorder
                   });
+                  
                 }
               }
             } else {
@@ -156,7 +157,7 @@
           }
         });
 
-        $("svg path", that).on("mouseout", function (e) {
+        $("svg path, svg text", that).on("mouseout", function (e) {
           var country = $(e.target).attr("id");
           $('path#' + country, that).css({
             "fill": settings.color,
@@ -211,36 +212,36 @@
         });
       }
       if (options.hoverColor) {
-        $("svg path#" + options.name).on("mouseover", function(e) {
+        $("svg path#" + options.name +", svg text#"+options.name).on("mouseover", function(e) {
           $("svg path#" + options.name).css({
             fill: options.hoverColor
           });
           if (options.hoverBorder) {
-            $("svg path#" + options.name).css({
+            $("svg path#" + options.name +", svg text#"+options.name).css({
               stroke: options.hoverBorder
             });
           }
         });
-        $("svg path#" + options.name).on("mouseout", function(e) {
+        $("svg path#" + options.name +", svg text#"+options.name).on("mouseout", function(e) {
           $("svg path#" + options.name).css({
             fill: options.color
           });
           if (options.hoverBorder) {
-            $("svg path#" + options.name).css({
+            $("svg path#" + options.name +", svg text#"+options.name).css({
               stroke: options.border
             });
           }
         });
       }
       if (options.click) {
-        $("svg path#" + options.name).on("click", function (e) {
+        $("svg path#" + options.name +", svg text#"+options.name).on("click", function (e) {
           e.stopPropagation()
           lastclicked = $(e.target).attr("id");
           options.click(lastclicked);
         });
       }
       if (options.hover) {
-        $("svg path#" + options.name).on("mouseover", function (e) {
+        $("svg path#" + options.name +", svg text#"+options.name).on("mouseover", function (e) {
           e.stopPropagation()
           lastclicked = $(e.target).attr("id");
           options.hover(lastclicked);
