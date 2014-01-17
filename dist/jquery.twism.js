@@ -96,8 +96,6 @@
           width: that.width()
         }).css({
           background: settings.backgroundColor,
-          margin: "auto",
-          display: "block"
         });
         var hiddens = settings.hideCountries;
         for (i in hiddens) {
