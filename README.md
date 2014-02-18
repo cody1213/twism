@@ -87,6 +87,14 @@ U.S. Territories?
 
 	territories: true
 
+Map labels (usa only)?
+
+	labels: true
+
+Map label attributes (usa only)
+
+	labelAttributes: { color:  'white', font:  'Helvetica',fontSize: '15'}
+	
 P.R.C. Territories? (i.e., treat Taiwan, HK, and Macao as one China, default: true)
 
 	littleRedBook: false,
