@@ -52,9 +52,9 @@
         hoverColor: "#BB0029",
         hoverBorder: "yellow",
         littleRedBook: true,
-        hideCountries: null,
-        disableCountries: null,
-        individualCountrySettings: null
+        hideCountries: false,
+        disableCountries: [],
+        individualCountrySettings: false
       }, options);
       // add the SVG to the div
       var that = self;
