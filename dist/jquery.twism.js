@@ -28,11 +28,9 @@
       }
     var addText = function(p, text, x, y, color, font, fontSize)
     {
-     // console.log(x+','+y);
       var t = document.createElementNS("http://www.w3.org/2000/svg", "text");
       if (p && typeof p.getBBox === "function" && x && y) {
         var b = p.getBBox();
-        //console.log('addText(document.getElementById("'+text+'"),"'+text+'",'+(b.x + b.width/2)+','+(b.y + b.height/2)+');');
         t.setAttribute("transform", "translate(" + x + " " + y + ")");
         t.textContent = text;
         t.setAttribute("id", text); 
@@ -48,7 +46,6 @@
       var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
       p = document.getElementsByTagName('svg')[0];
       var viewbox = p.viewBox.baseVal;
-      console.log(viewbox);
       rect.setAttribute("id", text); 
       rect.setAttribute("fill",fill);
       rect.setAttribute("stroke",stroke);
@@ -62,7 +59,6 @@
       // Acquiring a parent element with document.getElementById() would be safest.
       p.appendChild(rect);
       addText(rect, text, p.getBBox().width-30, y+15, color, font, fontSize);
-      //console.log((p.getBBox().width-40)+', 200');
     }
     var create = function(options, callback) {
         var settings = $.extend({
