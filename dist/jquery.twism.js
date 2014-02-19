@@ -198,7 +198,7 @@
   
             var init = 200;
             _.each(toosmall, function(state) {
-              addLabelRectangle(state, init, settings.color, settings.borderColor, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+              addLabelRectangle(state, init, (settings.labelAttributes.backgroundColor || settings.color), settings.borderColor, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
               init = init + 25;
             });
           }

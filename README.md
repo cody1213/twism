@@ -93,7 +93,7 @@ Map labels (usa only)?
 
 Map label attributes (usa only)
 
-	labelAttributes: { color:  'white', font:  'Helvetica',fontSize: '15'}
+	labelAttributes: { color:  'white', font:  'Helvetica',fontSize: '15', backgroundColor: 'blue'}
 	
 P.R.C. Territories? (i.e., treat Taiwan, HK, and Macao as one China, default: true)
 

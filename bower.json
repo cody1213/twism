@@ -1,7 +1,7 @@
 {
   "name": "tWISM for jQuery",
   "description": "A jQuery plugin for quick SVG maps",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://github.com/cody1213/twism",
   "author": {
     "name": "Cody Brumfield",
