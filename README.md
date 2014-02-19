@@ -9,7 +9,7 @@ http://dev.codybrumfield.com/jquery-plugins/twism/example.html
 Because sometimes, I just want to add a quick map to a project without making my life [complicated](http://d3js.org "A complicated little project"). 
 
 ####How stable is it?
-This is version: 0.2.0. Consider it at the beta stage, though I've used it in live projects. If you find any bugs, let me know!
+This is version: 0.3.1. Consider it at the beta stage, though I've used it in production. If you find any bugs, fork this repo and/or let me know!
 
 ####Browser support?
 Modern browsers down to IE9 is the goal.

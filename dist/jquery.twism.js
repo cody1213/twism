@@ -150,50 +150,55 @@
           
           if (settings.labels && settings.map == "usa") {
             var paths = document.querySelectorAll("path");
+            
+            //Define the states too small to hold a label
             var toosmall = ['NH', 'VT', 'MA', 'RI', 'CT', 'NJ', 'DE', 'MD', 'DC'];
-  
-            addText(document.getElementById("HI"), "HI", 289.91015625, 546.38671875, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("AK"), "AK", 110.548828125, 510.984375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("FL"), "FL", 718.39453125, 511.765625, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("SC"), "SC", 752.140625, 380.443359375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("GA"), "GA", 714.482421875, 404.85546875, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("AL"), "AL", 654.025390625, 415.353515625, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("NC"), "NC", 767.005859375, 332.205078125, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("TN"), "TN", 657.78515625, 340.91015625, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("ME"), "ME", 895.962890625, 86.765625, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("NY"), "NY", 807.96484375, 155.4296875, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("PA"), "PA", 782.181640625, 211.048828125, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("WV"), "WV", 748.734375, 263.64453125, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("KY"), "KY", 657.998046875, 299.93359375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("OH"), "OH", 699.83203125, 236.162109375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("MI"), "MI", 632.837890625, 143.537109375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("WY"), "WY", 293.837890625, 181.0078125, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("MT"), "MT", 273.30859375, 86.67578125, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("ID"), "ID", 192.91796875, 111.21484375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("WA"), "WA", 116.349609375, 48.798828125, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("TX"), "TX", 404.525390625, 452.501953125, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("CA"), "CA", 83.744140625, 267.265625, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("AZ"), "AZ", 193.78125, 364.98828125, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("NV"), "NV", 132.234375, 251.673828125, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("UT"), "UT", 216.091796875, 248.625, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("CO"), "CO", 317.134765625, 272.376953125, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("NM"), "NM", 297.158203125, 373.7734375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("OR"), "OR", 96.0703125, 118.625, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("ND"), "ND", 414.55078125, 92.26171875, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("SD"), "SD", 412.8359375, 163.32421875, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("NE"), "NE", 419.373046875, 223.232421875, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("IA"), "IA", 523.037109375, 214.46484375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("MS"), "MS", 593.943359375, 418.951171875, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("IN"), "IN", 644.375, 255.51171875, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("IL"), "IL", 590.1796875, 260.07421875, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("MN"), "MN", 520.072265625, 116.537109375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("WI"), "WI", 574.810546875, 151.859375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("MO"), "MO", 542.927734375, 294.625, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("AR"), "AR", 547.9921875, 373.6875, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("OK"), "OK", 432.6015625, 361.181640625, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("KS"), "KS", 439.775390625, 291.08984375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            
+            //Hawaii uses the primary color
+            addText(document.getElementById("HI"), "HI", 300, 575, settings.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            
+            //The rest are the same
+            addText(document.getElementById("AK"), "AK", 110, 500, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("FL"), "FL", 755, 511, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("SC"), "SC", 752, 380, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("GA"), "GA", 700, 405, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("AL"), "AL", 645, 415, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("NC"), "NC", 767, 332, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("TN"), "TN", 647, 345, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("ME"), "ME", 885, 86, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("NY"), "NY", 807, 155, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("PA"), "PA", 770, 211, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("WV"), "WV", 735, 275, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("KY"), "KY", 665, 305, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("OH"), "OH", 694, 236, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("MI"), "MI", 650, 175, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("WY"), "WY", 293, 181, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("MT"), "MT", 273, 86, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("ID"), "ID", 183, 151, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("WA"), "WA", 116, 48, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("TX"), "TX", 404, 452, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("CA"), "CA", 65, 280, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("AZ"), "AZ", 193, 364, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("NV"), "NV", 132, 251, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("UT"), "UT", 216, 248, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("CO"), "CO", 317, 272, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("NM"), "NM", 297, 373, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("OR"), "OR", 96, 118, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("ND"), "ND", 408, 92, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("SD"), "SD", 408, 163, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("NE"), "NE", 408, 223, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("IA"), "IA", 523, 214, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("MS"), "MS", 588, 418, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("IN"), "IN", 644, 255, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("IL"), "IL", 590, 260, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("MN"), "MN", 495, 116, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("WI"), "WI", 574, 151, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("MO"), "MO", 535, 294, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("AR"), "AR", 537, 375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("OK"), "OK", 432, 361, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("KS"), "KS", 439, 291, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
             addText(document.getElementById("LA"), "LA", 538, 456, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
-            addText(document.getElementById("VA"), "VA", 768.4453125, 282.271484375, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
+            addText(document.getElementById("VA"), "VA", 778, 282, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
   
             var init = 200;
             _.each(toosmall, function(state) {
