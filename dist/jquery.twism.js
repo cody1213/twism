@@ -28,37 +28,51 @@
       }
     var addText = function(p, text, x, y, color, font, fontSize)
     {
-      var t = document.createElementNS("http://www.w3.org/2000/svg", "text");
-      if (p && typeof p.getBBox === "function" && x && y) {
-        var b = p.getBBox();
-        t.setAttribute("transform", "translate(" + x + " " + y + ")");
-        t.textContent = text;
-        t.setAttribute("id", text); 
-        t.setAttribute("fill", color);
-        t.setAttribute("font-size", fontSize);
-        t.setAttribute("font-family", font)
-        p.parentNode.insertBefore(t, p.nextSibling);
+      try {
+        var t = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        if (p && typeof p.getBBox === "function" && x && y) {
+          var b = p.getBBox();
+          t.setAttribute("transform", "translate(" + x + " " + y + ")");
+          t.textContent = text;
+          t.setAttribute("id", text); 
+          t.setAttribute("fill", color);
+          t.setAttribute("font-size", fontSize);
+          t.setAttribute("font-family", font)
+          p.parentNode.insertBefore(t, p.nextSibling);
+        }
+      }
+      catch(err) {
+        if (err) {
+          
+        }
       }
     }
     
     var addLabelRectangle = function(text, y, fill, stroke, color, font, fontSize) {
-      // Set any attributes as desired
-      var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      p = document.getElementsByTagName('svg')[0];
-      var viewbox = p.viewBox.baseVal;
-      rect.setAttribute("id", text); 
-      rect.setAttribute("fill",fill);
-      rect.setAttribute("stroke",stroke);
-      rect.setAttribute("stroke-width","1");
-      rect.setAttribute("x", (p.getBBox().width-40));
-      rect.setAttribute("y", y);
-      rect.setAttribute("width", "40");
-      rect.setAttribute("height", "20");
-      
-      // Add to a parent node; document.documentElement should be the root svg element.
-      // Acquiring a parent element with document.getElementById() would be safest.
-      p.appendChild(rect);
-      addText(rect, text, p.getBBox().width-30, y+15, color, font, fontSize);
+      try {
+        // Set any attributes as desired
+        var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        p = document.getElementsByTagName('svg')[0];
+        var viewbox = p.viewBox.baseVal;
+        rect.setAttribute("id", text); 
+        rect.setAttribute("fill",fill);
+        rect.setAttribute("stroke",stroke);
+        rect.setAttribute("stroke-width","1");
+        rect.setAttribute("x", (p.getBBox().width-40));
+        rect.setAttribute("y", y);
+        rect.setAttribute("width", "40");
+        rect.setAttribute("height", "20");
+        
+        // Add to a parent node; document.documentElement should be the root svg element.
+        // Acquiring a parent element with document.getElementById() would be safest.
+        p.appendChild(rect);
+        addText(rect, text, p.getBBox().width-30, y+15, color, font, fontSize);
+      }
+      catch(err) {
+        if (err) {
+        
+        }
+      }
     }
     var create = function(options, callback) {
         var settings = $.extend({
