@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clickable Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://github.com/cody1213/twism">TWISM</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="example.html">World Map</a></li>
+            <li><a href="example-custom.html">Custom Map</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <select id="stateselect"></select>
+        <a href="#" class="pull-right" id="download">Download</a>
+        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+          <div id="us-map"></div>
+        </div>
+      </div>
+    </div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script src="dist/jquery.twism.js"></script>
+    <script>
+      var states_abbr = [
+      {
+      "name": "Alabama",
+      "abbreviation": "AL"
+      },
+      {
+      "name": "Alaska",
+      "abbreviation": "AK"
+      },
+      {
+      "name": "Arizona",
+      "abbreviation": "AZ"
+      },
+      {
+      "name": "Arkansas",
+      "abbreviation": "AR"
+      },
+      {
+      "name": "California",
+      "abbreviation": "CA"
+      },
+      {
+      "name": "Colorado",
+      "abbreviation": "CO"
+      },
+      {
+      "name": "Connecticut",
+      "abbreviation": "CT"
+      },
+      {
+      "name": "Delaware",
+      "abbreviation": "DE"
+      },
+      {
+      "name": "District Of Columbia",
+      "abbreviation": "DC"
+      },
+      {
+      "name": "Florida",
+      "abbreviation": "FL"
+      },
+      {
+      "name": "Georgia",
+      "abbreviation": "GA"
+      },
+      {
+      "name": "Hawaii",
+      "abbreviation": "HI"
+      },
+      {
+      "name": "Idaho",
+      "abbreviation": "ID"
+      },
+      {
+      "name": "Illinois",
+      "abbreviation": "IL"
+      },
+      {
+      "name": "Indiana",
+      "abbreviation": "IN"
+      },
+      {
+      "name": "Iowa",
+      "abbreviation": "IA"
+      },
+      {
+      "name": "Kansas",
+      "abbreviation": "KS"
+      },
+      {
+      "name": "Kentucky",
+      "abbreviation": "KY"
+      },
+      {
+      "name": "Louisiana",
+      "abbreviation": "LA"
+      },
+      {
+      "name": "Maine",
+      "abbreviation": "ME"
+      },
+      {
+      "name": "Maryland",
+      "abbreviation": "MD"
+      },
+      {
+      "name": "Massachusetts",
+      "abbreviation": "MA"
+      },
+      {
+      "name": "Michigan",
+      "abbreviation": "MI"
+      },
+      {
+      "name": "Minnesota",
+      "abbreviation": "MN"
+      },
+      {
+      "name": "Mississippi",
+      "abbreviation": "MS"
+      },
+      {
+      "name": "Missouri",
+      "abbreviation": "MO"
+      },
+      {
+      "name": "Montana",
+      "abbreviation": "MT"
+      },
+      {
+      "name": "Nebraska",
+      "abbreviation": "NE"
+      },
+      {
+      "name": "Nevada",
+      "abbreviation": "NV"
+      },
+      {
+      "name": "New Hampshire",
+      "abbreviation": "NH"
+      },
+      {
+      "name": "New Jersey",
+      "abbreviation": "NJ"
+      },
+      {
+      "name": "New Mexico",
+      "abbreviation": "NM"
+      },
+      {
+      "name": "New York",
+      "abbreviation": "NY"
+      },
+      {
+      "name": "North Carolina",
+      "abbreviation": "NC"
+      },
+      {
+      "name": "North Dakota",
+      "abbreviation": "ND"
+      },
+      {
+      "name": "Ohio",
+      "abbreviation": "OH"
+      },
+      {
+      "name": "Oklahoma",
+      "abbreviation": "OK"
+      },
+      {
+      "name": "Oregon",
+      "abbreviation": "OR"
+      },
+      {
+      "name": "Pennsylvania",
+      "abbreviation": "PA"
+      },
+      {
+      "name": "Rhode Island",
+      "abbreviation": "RI"
+      },
+      {
+      "name": "South Carolina",
+      "abbreviation": "SC"
+      },
+      {
+      "name": "South Dakota",
+      "abbreviation": "SD"
+      },
+      {
+      "name": "Tennessee",
+      "abbreviation": "TN"
+      },
+      {
+      "name": "Texas",
+      "abbreviation": "TX"
+      },
+      {
+      "name": "Utah",
+      "abbreviation": "UT"
+      },
+      {
+      "name": "Vermont",
+      "abbreviation": "VT"
+      },
+      {
+      "name": "Virginia",
+      "abbreviation": "VA"
+      },
+      {
+      "name": "Washington",
+      "abbreviation": "WA"
+      },
+      {
+      "name": "West Virginia",
+      "abbreviation": "WV"
+      },
+      {
+      "name": "Wisconsin",
+      "abbreviation": "WI"
+      },
+      {
+      "name": "Wyoming",
+      "abbreviation": "WY"
+      }
+      ]
+      $(document).ready(function() {
+        //var state = states_abbr[50].abbreviation;
+        var state = "RI";//CO GA IA IL IN TN VA
+        console.log(state);
+
+        $('#us-map').twism("create", 
+        {
+          map: "county",
+          border: "#C2DFFB",
+          hoverColor: "#EF642F",
+          hoverBorder: "#EF642F",
+          color: '#72B3DC',
+          backgroundColor: '#FEEDE4',
+          borderWidth: '1'
+        }, function() {
+        var largests = [];
+        $('svg path').each(function() {
+          var id = parseInt($(this).attr('id'));
+          var label = ($(this).attr('inkscape:label')).split(', ')[1];
+          if (state != label) {
+            $(this).remove();
+          } else {
+            var theD = $(this).attr('d');
+            largests.push(Math.max.apply(null, theD.match(/\d+\.\d{1,5}/g)));
+          }
+        });
+        console.log(_.max(largests));
+        
+        var svg = $('#us-map').html();
+        $('#download').attr("download",state+".svg").attr("href","data:image/svg+xml," + encodeURIComponent(svg)).trigger("click");
+      });
+        
+      });
+    </script>
+  </body>
+</html>

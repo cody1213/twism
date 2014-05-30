@@ -114,10 +114,7 @@
         }, options);
         // add the SVG to the div
         var that = self;
-        that.css({
-          width: (settings.width || "100%"),
-          height: (settings.height || "100%"),
-        });
+
         if (settings.map == "world") {
           var file = (settings.antarctica) ? 'world-map-with-antarctica.svg' : 'world-map.svg';
         } else if (settings.map == "usa") {
@@ -133,6 +130,10 @@
             settings.hideCountries.push("PR");
 
           }
+        } else if (settings.map == "state") {
+          var file = 'US_states/'+settings.state+'.svg';
+        } else if (settings.map == "county") {
+          var file = 'USA_Counties.svg';
         } else if (settings.map == "custom") {
           var url = settings.customMap;
         }
@@ -217,7 +218,7 @@
             });
           }
 
-          $("svg path, svg rect", that).css({
+          $("svg path[id], svg rect", that).css({
             fill: settings.color,
             stroke: settings.border,
             strokeWidth: settings.borderWidth
