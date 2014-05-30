@@ -1,4 +1,4 @@
-twism 
+jQuery tWism 
 =====
 A clickable SVG maps jQuery plugin
 
