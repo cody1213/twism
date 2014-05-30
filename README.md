@@ -1,7 +1,7 @@
 jQuery tWism 
 =====
 A clickable SVG maps jQuery plugin
-
+ 
 ####Live example
 http://dev.codybrumfield.com/jquery-plugins/twism/example.html
 
