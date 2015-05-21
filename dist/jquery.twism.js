@@ -98,6 +98,9 @@
           hover: function() {
             return;
           },
+          unhover: function() {
+            return;
+          },
           hoverColor: "#BB0029",
           hoverBorder: "yellow",
           littleRedBook: true,
@@ -114,7 +117,10 @@
         }, options);
         // add the SVG to the div
         var that = self;
-
+        that.css({
+          width: (settings.width || "100%"),
+          height: (settings.height || "100%"),
+        });
         if (settings.map == "world") {
           var file = (settings.antarctica) ? 'world-map-with-antarctica.svg' : 'world-map.svg';
         } else if (settings.map == "usa") {
@@ -130,12 +136,18 @@
             settings.hideCountries.push("PR");
 
           }
-        } else if (settings.map == "state") {
-          var file = 'US_states/'+settings.state+'.svg';
-        } else if (settings.map == "county") {
-          var file = 'USA_Counties.svg';
         } else if (settings.map == "custom") {
           var url = settings.customMap;
+          if (!settings.territories) {
+            if (!settings.hideCountries) {
+              settings.hideCountries = [];
+            }
+            settings.hideCountries.push("VI");
+            settings.hideCountries.push("GU");
+            settings.hideCountries.push("MP");
+            settings.hideCountries.push("AS");
+            settings.hideCountries.push("PR");
+          }
         }
         //hack for RequireJS/Bower
         if (typeof(require) !== 'undefined' && settings.map != "custom") {
@@ -159,7 +171,7 @@
             $("path#" + hiddens[i]+", rect#" + hiddens[i], that).remove();
           };
           
-          if (settings.labels && settings.map == "usa") {
+          if (settings.labels && (settings.map == "usa" || settings.map == "custom")) {
             var paths = document.querySelectorAll("path");
             
             //Define the states too small to hold a label
@@ -218,7 +230,7 @@
             });
           }
 
-          $("svg path[id], svg rect", that).css({
+          $("svg path, svg rect", that).css({
             fill: settings.color,
             stroke: settings.border,
             strokeWidth: settings.borderWidth
@@ -233,6 +245,16 @@
           $("svg", that).on("click", function(e) {
             lastclicked = $(e.target).attr("id");
             settings.click(lastclicked);
+          });
+
+          $("svg", that).on("mouseover", function(e) {
+            lastclicked = $(e.target).attr("id");
+            settings.hover(lastclicked);
+          });
+
+          $("svg", that).on("mouseout", function(e) {
+            lastclicked = $(e.target).attr("id");
+            settings.unhover(lastclicked);
           });
 
           $("svg path, svg rect, svg text", that).on("mouseover", function(e) {
