@@ -160,10 +160,12 @@
 
         that.load(url, null, function(e) {
           $("svg", that).attr({
-            height: that.height(),
-            width: that.width()
+            height: '100%',
+            width: '100%'
           }).css({
             background: settings.backgroundColor,
+            height: '100%',
+            width: '100%'
           });
           var hiddens = settings.hideCountries;
           for (i in hiddens) {
