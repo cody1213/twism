@@ -12,5 +12,6 @@
   ],
   "dependencies": {
     "jquery": "*"
-  }
+  },
+  "version": "0.4.6"
 }
