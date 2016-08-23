@@ -225,10 +225,11 @@
             addText(document.getElementById("VA"), "VA", 778, 282, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
   
             var init = 200;
-            _.each(toosmall, function(state) {
+            for (var i = 0; i < toosmall.length; i++) {
+              var state = toosmall[i];
               addLabelRectangle(state, init, (settings.labelAttributes.backgroundColor || settings.color), settings.borderColor, settings.labelAttributes.color,settings.labelAttributes.font,settings.labelAttributes.fontSize);
               init = init + 25;
-            });
+            }
           }
 
           $("svg path, svg rect", that).css({
