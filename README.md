@@ -50,12 +50,12 @@ For instance:
 	
 To edit an individual country:
 
-        $('#worldmap').twism("setCountry", {
-	  name: 'us',
-	  color: 'rgba(255,0,0,1)' //any CSS color should work
-	}, function() {
-	  alert('Color changed to red.')
-	})
+    $('#worldmap').twism("setCountry", {
+      name: 'us',
+      color: 'rgba(255,0,0,1)' //any CSS color should work
+    }, function() {
+      alert('Color changed to red.')
+    })
 
 The create and setCountry commands take options and all take a callback. 
 
