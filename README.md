@@ -2,19 +2,19 @@ jQuery tWism
 =====
 A clickable SVG maps jQuery plugin
 
-####Why does this exist
+#### Why does this exist
 Because sometimes, I just want to add a quick map to a project without making my life [complicated](http://d3js.org "A complicated little project"). 
 
-####How stable is it?
+#### How stable is it?
 This is version: 0.4.5. Consider it at the release candidate stage, though I've used it in production. If you find any bugs, fork this repo and/or let me know!
 
-####Browser support?
+#### Browser support?
 Modern browsers down to IE9 is the goal.
 
-####It seems like this would work for any SVG
+#### It seems like this would work for any SVG
 Well, it works for any SVG that has IDs on the clickable regions. I made it for rolling out quick maps, though. You should probably use [D3.js](http://d3js.org "A bar chart in less than 9 hours!") or [Raphael](http://raphaeljs.com "Wow! IE 6 support!") if you want a robust, tested library for manipulating vector graphics. 
 
-##Quick Instructions
+## Quick Instructions
 Include jQuery and the jQuery twism plugin:
 
 	<script src="http://code.jquery.com/jquery.js"></script>
@@ -28,14 +28,14 @@ Initialize the plugin on said container:
 	$('#worldmap').twism();
 	
 
-##Complete Documentation
+## Complete Documentation
 
-####Usage
+#### Usage
 
 	selector.twism([method], [options], [callback]);
 	
 
-####Methods: 
+#### Methods: 
 
 * create (default) - create a map
 * destroy - remove a map
@@ -75,7 +75,7 @@ An example with a method, option, and callback:
     	alert("Callback!");
     });
 
-###Options
+### Options
 
 Pick a map (options: usa, world, or custom; default is world)
 
