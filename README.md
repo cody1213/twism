@@ -2,9 +2,6 @@ jQuery tWism
 =====
 A clickable SVG maps jQuery plugin
 
-####Live example
-http://dev.codybrumfield.com/jquery-plugins/twism/example.html
-
 ####Why does this exist
 Because sometimes, I just want to add a quick map to a project without making my life [complicated](http://d3js.org "A complicated little project"). 
 
