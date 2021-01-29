@@ -148,8 +148,15 @@
             settings.hideCountries.push("PR");
           }
         }
+
+        // Webpack require usage
+        if (typeof(__webpack_require__) === 'function') {
+          const buildUrl = require('./maps/' + file);
+          url = buildUrl.default;
+          console.log('Moved file to url: ', file, url);
+        }
         //hack for RequireJS/Bower
-        if (typeof(require) !== 'undefined' && settings.map != "custom") {
+        else if (typeof(require) !== 'undefined' && settings.map != "custom") {
           var oriurl = file;
           url = require.toUrl('twism').replace('jquery.twism', 'maps/' + file);
         } else if (!settings.customMap) {
